@@ -10,7 +10,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.cryptodemo.databinding.FragmentCryptoListBinding
 import com.example.cryptodemo.viewModels.ApiStatus
 import com.example.cryptodemo.viewModels.CryptoViewModel
@@ -28,10 +27,7 @@ class CryptoListFragment : Fragment() {
     private val binding get() = _binding!!
     private val sharedViewModel: CryptoViewModel by activityViewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,13 +43,12 @@ class CryptoListFragment : Fragment() {
 
         val adapter = CryptoListAdapter() {
             val action =
-                CryptoListFragmentDirections.actionCryptoListFragmentToCryptoDetails(it.symbol)
+                CryptoListFragmentDirections.actionCryptoListFragmentToCryptoDetailsFragment(it.symbol)
             view.findNavController().navigate(action)
         }
         binding.cryptoRV.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.cryptoRV.adapter = adapter
-
         sharedViewModel.getTickersList()
         sharedViewModel.status.observe(viewLifecycleOwner, Observer {
             when (it) {

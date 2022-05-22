@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CryptoDetails">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/cryptoIconTV"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="30dp"
+            android:background="@drawable/round_icon"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="B"
+            android:textAllCaps="true"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/coinNameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Name"
+            app:layout_constraintEnd_toEndOf="@+id/cryptoIconTV"
+            app:layout_constraintStart_toStartOf="@+id/cryptoIconTV"
+            app:layout_constraintTop_toBottomOf="@+id/cryptoIconTV" />
+
+
+        <TextView
+            android:id="@+id/openPriceLabelTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="OpenPrice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/coinNameTV" />
+
+        <TextView
+            android:id="@+id/openPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="100000000"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/openPriceLabelTV"
+            app:layout_constraintStart_toEndOf="@+id/openPriceLabelTV"
+            app:layout_constraintTop_toTopOf="@+id/openPriceLabelTV" />
+
+        <TextView
+            android:id="@+id/lowPriceLabelTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="LowPrice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/openPriceLabelTV" />
+
+        <TextView
+            android:id="@+id/lowPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="1000"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/lowPriceLabelTV"
+            app:layout_constraintStart_toEndOf="@+id/lowPriceLabelTV"
+            app:layout_constraintTop_toTopOf="@+id/lowPriceLabelTV" />
+
+        <TextView
+            android:id="@+id/highPriceLabelTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="HighPrice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lowPriceLabelTV" />
+
+        <TextView
+            android:id="@+id/highPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="1000"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/highPriceLabelTV"
+            app:layout_constraintStart_toEndOf="@+id/highPriceLabelTV"
+            app:layout_constraintTop_toTopOf="@+id/highPriceLabelTV" />
+
+        <TextView
+            android:id="@+id/lastPriceLabelTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="LastPrice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/highPriceLabelTV" />
+
+        <TextView
+            android:id="@+id/lastPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="1000"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/lastPriceLabelTV"
+            app:layout_constraintStart_toEndOf="@+id/lastPriceLabelTV"
+            app:layout_constraintTop_toTopOf="@+id/lastPriceLabelTV" />
+
+        <TextView
+            android:id="@+id/volumeLabelTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Volume"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lastPriceLabelTV" />
+
+        <TextView
+            android:id="@+id/volumeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="1000"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/volumeLabelTV"
+            app:layout_constraintStart_toEndOf="@+id/volumeLabelTV"
+            app:layout_constraintTop_toTopOf="@+id/volumeLabelTV" />
+
+        <TextView
+            android:id="@+id/bidPriceLabelTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="BidPrice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/volumeLabelTV" />
+
+        <TextView
+            android:id="@+id/bidPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="1000"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/bidPriceLabelTV"
+            app:layout_constraintStart_toEndOf="@+id/bidPriceLabelTV"
+            app:layout_constraintTop_toTopOf="@+id/bidPriceLabelTV" />
+
+        <TextView
+            android:id="@+id/askPriceLabelTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="AskPrice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bidPriceLabelTV" />
+
+        <TextView
+            android:id="@+id/askPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="1000"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/askPriceLabelTV"
+            app:layout_constraintStart_toEndOf="@+id/askPriceLabelTV"
+            app:layout_constraintTop_toTopOf="@+id/askPriceLabelTV" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

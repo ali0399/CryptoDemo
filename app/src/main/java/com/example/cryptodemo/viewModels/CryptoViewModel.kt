@@ -44,7 +44,7 @@ class CryptoViewModel : ViewModel() {
     }
 
     fun getTicker(symbol:String) {
-        Log.d(TAG, "getTickersList: start")
+        Log.d(TAG, "getTicker: start")
         viewModelScope.launch(Dispatchers.IO) {
             _status.postValue(ApiStatus.LOADING)
             try {
@@ -57,7 +57,7 @@ class CryptoViewModel : ViewModel() {
                 else throw Exception("Api Error Code : ${result.code()}")
             }
             catch (e:Exception){
-                Log.d(TAG, "getTickersList: error- $e")
+                Log.d(TAG, "getTicker: error- $e")
                 _status.postValue(ApiStatus.ERROR)
             }
         }

@@ -12,14 +12,14 @@
         android:label="@string/app_name"
         tools:layout="@layout/fragment_crypto_list">
         <action
-            android:id="@+id/action_cryptoListFragment_to_cryptoDetails"
-            app:destination="@id/cryptoDetails" />
+            android:id="@+id/action_cryptoListFragment_to_cryptoDetailsFragment"
+            app:destination="@id/cryptoDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/cryptoDetails"
-        android:name="com.example.cryptodemo.CryptoDetails"
+        android:id="@+id/cryptoDetailsFragment"
+        android:name="com.example.cryptodemo.CryptoDetailsFragment"
         android:label="{symbol}"
-        tools:layout="@layout/fragmentss_crypto_details">
+        tools:layout="@layout/fragment_crypto_details">
         <argument
             android:name="symbol"
             app:argType="string" />
