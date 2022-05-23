@@ -54,8 +54,8 @@ class CryptoDetailsFragment : Fragment() {
                             bidPriceTV.text = itemDetails.bidPrice
                             askPriceTV.text = itemDetails.askPrice
                         }
-
                     }
+                    binding.swipeRefLayout.isRefreshing = false
                 }
                 ApiStatus.ERROR -> {
                     binding.swipeRefLayout.isRefreshing = false
