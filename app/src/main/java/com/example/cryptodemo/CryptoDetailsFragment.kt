@@ -44,7 +44,7 @@ class CryptoDetailsFragment : Fragment() {
                     if(sharedViewModel.cryptoDetail.value!=null) {
                         val itemDetails = sharedViewModel.cryptoDetail.value!!
                         with(binding) {
-                            coinNameTV.text = itemDetails.quoteAsset
+                            coinNameTV.text = itemDetails.symbol
                             cryptoIconTV.text = itemDetails.symbol[0].toString()
                             openPriceTV.text = itemDetails.openPrice
                             lowPriceTV.text = itemDetails.lowPrice
