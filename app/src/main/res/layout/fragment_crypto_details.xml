@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="Name"
+            android:textAllCaps="true"
             app:layout_constraintEnd_toEndOf="@+id/cryptoIconTV"
             app:layout_constraintStart_toStartOf="@+id/cryptoIconTV"
             app:layout_constraintTop_toBottomOf="@+id/cryptoIconTV" />
