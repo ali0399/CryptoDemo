@@ -13,7 +13,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 enum class ApiStatus { LOADING, ERROR, DONE }
-private const val TAG="CryptoViewModel"
+
+private const val TAG = "CryptoViewModel"
 
 class CryptoViewModel : ViewModel() {
 
@@ -23,9 +24,9 @@ class CryptoViewModel : ViewModel() {
     private val _cryptoList = MutableLiveData<List<CryptoListResponseItem>>()
     private val _cryptoDetails = MutableLiveData<CryptoListResponseItem>()
 
-    val cryptoList:LiveData<List<CryptoListResponseItem>> get() = _cryptoList
-    val cryptoDetail:LiveData<CryptoListResponseItem> get() = _cryptoDetails
     val status: LiveData<ApiStatus> = _status
+    val cryptoList: LiveData<List<CryptoListResponseItem>> get() = _cryptoList
+    val cryptoDetail: LiveData<CryptoListResponseItem> get() = _cryptoDetails
 
     fun getTickersList() {
         Log.d(TAG, "getTickersList: start")
@@ -34,8 +35,7 @@ class CryptoViewModel : ViewModel() {
             try {
                 _cryptoList.postValue(wazirXService.getTickersList().body())
                 _status.postValue(ApiStatus.DONE)
-            }
-            catch (e:Exception){
+            } catch (e: Exception) {
                 Log.d(TAG, "getTickersList: error- $e")
                 _cryptoList.postValue(CryptoListResponse())
                 _status.postValue(ApiStatus.ERROR)
@@ -43,20 +43,15 @@ class CryptoViewModel : ViewModel() {
         }
     }
 
-    fun getTicker(symbol:String) {
+    fun getTicker(symbol: String) {
         Log.d(TAG, "getTicker: start")
         viewModelScope.launch(Dispatchers.IO) {
             _status.postValue(ApiStatus.LOADING)
             try {
-                val result=wazirXService.getTicker(symbol)
-                if(result.isSuccessful) {
-                    Log.d(TAG, "getTicker: Successfull- ${result.code()}")
-                    _cryptoDetails.postValue(wazirXService.getTicker(symbol).body())
-                    _status.postValue(ApiStatus.DONE)
-                }
-                else throw Exception("Api Error Code : ${result.code()}")
-            }
-            catch (e:Exception){
+                Log.d(TAG, "getTicker: Successfull")
+                _cryptoDetails.postValue(wazirXService.getTicker(symbol).body())
+                _status.postValue(ApiStatus.DONE)
+            } catch (e: Exception) {
                 Log.d(TAG, "getTicker: error- $e")
                 _status.postValue(ApiStatus.ERROR)
             }

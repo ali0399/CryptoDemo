@@ -12,7 +12,7 @@ interface WazirXService {
     @GET("sapi/v1/tickers/24hr")
     suspend fun getTickersList():Response<List<CryptoListResponseItem>>
 
-    @GET("sapi/v1/tickers/24hr")
+    @GET("sapi/v1/ticker/24hr")
     suspend fun getTicker(@Query("symbol")symbol:String):Response<CryptoListResponseItem>
 
 

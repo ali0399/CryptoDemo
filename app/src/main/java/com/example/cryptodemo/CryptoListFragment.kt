@@ -14,34 +14,25 @@ import com.example.cryptodemo.databinding.FragmentCryptoListBinding
 import com.example.cryptodemo.viewModels.ApiStatus
 import com.example.cryptodemo.viewModels.CryptoViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-const val TAG="CryptoListFragment"
-
+const val TAG = "CryptoListFragment"
 class CryptoListFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    private var _binding: FragmentCryptoListBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentCryptoListBinding
     private val sharedViewModel: CryptoViewModel by activityViewModels()
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        _binding = FragmentCryptoListBinding.inflate(layoutInflater, container, false)
+        binding = FragmentCryptoListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = CryptoListAdapter() {
+        val adapter = CryptoListAdapter {
             val action =
                 CryptoListFragmentDirections.actionCryptoListFragmentToCryptoDetailsFragment(it.symbol)
             view.findNavController().navigate(action)
@@ -73,8 +64,5 @@ class CryptoListFragment : Fragment() {
 
 
     }
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+
 }
