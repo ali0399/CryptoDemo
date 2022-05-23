@@ -41,16 +41,20 @@ class CryptoDetailsFragment : Fragment() {
         sharedViewModel.status.observe(viewLifecycleOwner, Observer {
             when (it) {
                 ApiStatus.DONE -> {
-                    with(binding) {
-                        coinNameTV.text = sharedViewModel.cryptoDetail.value?.quoteAsset
-                        cryptoIconTV.text=sharedViewModel.cryptoDetail.value?.quoteAsset!![0].toString()
-                        openPriceTV.text = sharedViewModel.cryptoDetail.value?.openPrice
-                        openPriceTV.text = sharedViewModel.cryptoDetail.value?.lowPrice
-                        openPriceTV.text = sharedViewModel.cryptoDetail.value?.highPrice
-                        openPriceTV.text = sharedViewModel.cryptoDetail.value?.lastPrice
-                        openPriceTV.text = sharedViewModel.cryptoDetail.value?.volume
-                        openPriceTV.text = sharedViewModel.cryptoDetail.value?.bidPrice
-                        openPriceTV.text = sharedViewModel.cryptoDetail.value?.askPrice
+                    if(sharedViewModel.cryptoDetail.value!=null) {
+                        val itemDetails = sharedViewModel.cryptoDetail.value!!
+                        with(binding) {
+                            coinNameTV.text = itemDetails.symbol
+                            cryptoIconTV.text = itemDetails.symbol[0].toString()
+                            openPriceTV.text = itemDetails.openPrice
+                            lowPriceTV.text = itemDetails.lowPrice
+                            highPriceTV.text = itemDetails.highPrice
+                            lastPriceTV.text = itemDetails.lastPrice
+                            volumeTV.text = itemDetails.volume
+                            bidPriceTV.text = itemDetails.bidPrice
+                            askPriceTV.text = itemDetails.askPrice
+                        }
+
                     }
                 }
                 ApiStatus.ERROR -> {
